@@ -1,4 +1,4 @@
-##Persiana
+##Balls
 
 Balls é um pequeno experimento com canvas 2d usando efeito bouncing balls.
 
