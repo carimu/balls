@@ -7,15 +7,15 @@
 
 	var canvas = document.getElementById("layer");
 	var ctx = canvas.getContext("2d");
-	var	canvasWidth = window.innerWidth;
+	var canvasWidth = window.innerWidth;
 	var canvasHeight = window.innerHeight;
-	var	colors = ["#10222B", "#95AB63", "#BDD684", "#E2F0D6", "#F6FFE0", "#000000"];
-	var	setings = [];
-	var	down = false;
+	var colors = ["#10222B", "#95AB63", "#BDD684", "#E2F0D6", "#F6FFE0", "#000000"];
+	var setings = [];
+	var down = false;
 	var SPRING = 0.3;
 	var BOUNCE = -0.5;
 	var GRAVITY = 0.2;
-	var	mouse = {
+	var mouse = {
 
 		x : 0,
 		y : 0
