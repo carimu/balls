@@ -33,6 +33,12 @@
 		canvas.addEventListener( "mouseup", mouseUp, false ) ;
 		window.addEventListener( "resize", reset, false );
 
+		for( var i = 0; i < 10; i++ ) {
+
+			setings.push( new setBall( 0, 0 ) );
+
+		};
+		
 		animate();
 
 	}
