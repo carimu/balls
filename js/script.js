@@ -3,6 +3,7 @@
  *@balls copyright 2013
  *@GitHub : https://github.com/danilo-teixeira
  */
+
 !function( window, document ) {
 
 	var canvas = document.getElementById("layer");
@@ -30,17 +31,17 @@
 		canvas.addEventListener( "click", active, false );
 		canvas.addEventListener( "mousedown", mouseDown, false );
 		canvas.addEventListener( "mousemove", mouseMove, false );
-		canvas.addEventListener( "mouseup", mouseUp, false ) ;
+		canvas.addEventListener( "mouseup", mouseUp, false );
 		window.addEventListener( "resize", reset, false );
 
 		for( var i = 0; i < 10; i++ ) {
 
-			setings.push( new setBall( 0, 0 ) );
+			setings.push( new setBall( canvasWidth / 2, canvasHeight / 2 ) );
 
 		};
-		
+    
 		animate();
-
+		
 	}
 
 	function reset() {
@@ -98,12 +99,12 @@
 	 */
 	function move( ball, i ) {
 
-		for(var j = i + 1, len = setings.length; j < len; j++ ) {
-
+		for( var j = i + 1, len = setings.length; j < len; j++ ) {
+      
 			var dx = setings[j].x - ball.x;
 			var dy = setings[j].y - ball.y;
 			var dist = Math.sqrt( dx * dx + dy * dy );
-			var distMin = ball.radius + setings[j].radius;
+  			var distMin = ball.radius + setings[j].radius;
 
 			if( dist < distMin ) {
 
@@ -112,7 +113,11 @@
 				var ty = ball.y + Math.sin( angle ) * distMin;
 				var ax = ( tx - setings[j].x ) * SPRING * 0.5;
 				var ay = ( ty - setings[j].y ) * SPRING * 0.5;
+				var depth = ( distMin - dist ) / ( dist + 1 );
 
+				ball.x += ( ball.x - setings[j].x ) * ( depth ) * 0.5;
+				ball.y += ( ball.y - setings[j].y ) * ( depth ) * 0.5;
+				
 				ball.vx -= ax;
 				ball.vy -= ay;
 
@@ -190,17 +195,16 @@
 		active();
 
 	}
-
-	/**
-	 * requestAnimationFrame polyfill by Erik Möller
-	 * Fixes from Paul Irish and Tino Zijdel
-	 *
-	 * @see http://goo.gl/ZC1Lm
-	 * @see http://goo.gl/X0h6k
-	 */
-	(function(){for(var d=0,a=["ms","moz","webkit","o"],b=0;b<a.length&&!window.requestAnimationFrame;++b)window.requestAnimationFrame=window[a[b]+"RequestAnimationFrame"],window.cancelAnimationFrame=window[a[b]+"CancelAnimationFrame"]||window[a[b]+"CancelRequestAnimationFrame"];window.requestAnimationFrame||(window.requestAnimationFrame=function(b){var a=Date.now(),c=Math.max(0,16-(a-d)),e=window.setTimeout(function(){b(a+c)},c);d=a+c;return e});window.cancelAnimationFrame||(window.cancelAnimationFrame=function(a){clearTimeout(a)})})();
-	
+  
+  /**
+    * requestAnimationFrame polyfill by Erik Möller
+    * Fixes from Paul Irish and Tino Zijdel
+    *
+    * @see http://goo.gl/ZC1Lm
+    * @see http://goo.gl/X0h6k
+    */
+    (function(){for(var d=0,a=["ms","moz","webkit","o"],b=0;b<a.length&&!window.requestAnimationFrame;++b)window.requestAnimationFrame=window[a[b]+"RequestAnimationFrame"],window.cancelAnimationFrame=window[a[b]+"CancelAnimationFrame"]||window[a[b]+"CancelRequestAnimationFrame"];window.requestAnimationFrame||(window.requestAnimationFrame=function(b){var a=Date.now(),c=Math.max(0,16-(a-d)),e=window.setTimeout(function(){b(a+c)},c);d=a+c;return e});window.cancelAnimationFrame||(window.cancelAnimationFrame=function(a){clearTimeout(a)})})();
+  
 	init();
 
 }( window, document );
-
