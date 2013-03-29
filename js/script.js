@@ -114,8 +114,8 @@
 				var ay = ( ty - setings[j].y ) * SPRING * 0.5;
 				var depth = ( distMin - dist ) / ( dist + 1 );
 
-				ball.x += ( ball.x - setings[j].x ) * ( depth ) * 0.5;
-				ball.y += ( ball.y - setings[j].y ) * ( depth ) * 0.5;
+				ball.x += ( ball.x - setings[j].x ) * depth * 0.5;
+				ball.y += ( ball.y - setings[j].y ) * depth * 0.5;
 				
 				ball.vx -= ax;
 				ball.vy -= ay;
