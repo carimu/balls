@@ -8,8 +8,8 @@
 
 	var canvas = document.getElementById("layer");
 	var ctx = canvas.getContext("2d");
-	var canvasWidth = window.innerWidth;
-	var canvasHeight = window.innerHeight;
+	var canvasWidth;
+	var canvasHeight;
 	var colors = ["#10222B", "#95AB63", "#BDD684", "#E2F0D6", "#F6FFE0", "#000000"];
 	var setings = [];
 	var down = false;
@@ -25,15 +25,14 @@
 
 	function init() {
 
-		canvas.width = canvasWidth;
-		canvas.height = canvasHeight;
-
 		canvas.addEventListener( "click", active, false );
 		canvas.addEventListener( "mousedown", mouseDown, false );
 		canvas.addEventListener( "mousemove", mouseMove, false );
 		canvas.addEventListener( "mouseup", mouseUp, false );
 		window.addEventListener( "resize", reset, false );
 
+		reset();
+		
 		for( var i = 0; i < 10; i++ ) {
 
 			setings.push( new setBall( canvasWidth / 2, canvasHeight / 2 ) );
