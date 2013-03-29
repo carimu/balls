@@ -12,7 +12,7 @@
 	var canvasHeight;
 	var colors = ["#10222B", "#95AB63", "#BDD684", "#E2F0D6", "#F6FFE0", "#000000"];
 	var setings = [];
-	var down = false;
+	var isMouseDown = false;
 	var SPRING = 0.3;
 	var BOUNCE = -0.5;
 	var GRAVITY = 0.2;
@@ -161,7 +161,7 @@
 
 	function active() {
 
-		if( down ) {
+		if( isMouseDown ) {
 
 			setings.push( new setBall( mouse.x, mouse.y ) );
 
@@ -171,13 +171,13 @@
 	
 	function mouseUp() {
 
-		down = false;
+		isMouseDown = false;
 
 	}
 
 	function mouseDown() {
 		
-		down = true;
+		isMouseDown = true;
 
 		active();
 
