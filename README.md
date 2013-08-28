@@ -2,7 +2,7 @@
 
 Balls é um pequeno experimento com canvas 2d usando efeito bouncing balls.
 
-[Check out demo](http://daniloteixeira.p.ht/portifolio/experiments/balls/).
+[Check out demo](http://daniloteixeira.p.ht/experiments/balls/).
 
 by Danilo Teixeira.
 
